@@ -24,9 +24,10 @@ nix-env -iA \
   nixpkgs.zsh \
   ;
 
-echo 🍜 installing oh my zsh
-
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d ~/.oh-my-zsh ]; then
+  echo 🍜 installing oh my zsh
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 if [ "$SHELL" != "$(which zsh)" ]; then
   echo 🍜 setting zsh as default shell
