@@ -29,7 +29,11 @@ if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-if [ "$SHELL" != "$(which zsh)" ]; then
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+if [[ "$SHELL" != "$(which zsh)" ]]; then
   echo 🍜 setting zsh as default shell
 
   if command -v lchsh; then
@@ -54,6 +58,18 @@ cd ~/.dotfiles
 rm -f ~/.zshrc
 stow zsh
 stow tmux
+
+echo 🍜 installing tmux plugins
+tmux start-server
+tmux new-session -d
+~/.tmux/plugins/tpm/scripts/install_plugins.sh
+tmux kill-server
+
+printf "Install desktop apps? (y/n): "; read choice
+case $choice in
+  y|Y ) ./bootstrap-desktop.sh;;
+  * ) echo "skip bootstrap-desktop.sh";;
+esac
 
 cd ~
 . ~/.zshrc
