@@ -1,4 +1,4 @@
-# 🍜 **ukazap**'s dotfiles
+# 🍜 ukazap's dotfiles
 
 this repo helps me set up a development environment quickly. some stuff may not be relevant for you, but they are for me, cheers.
 
@@ -14,11 +14,11 @@ there are two bootstrap scripts available:
 first, review the bootstrap script (avoid running scripts from strangers you haven't read!):
 
 ```shell
-curl -L https://github.com/ukazap/dotfiles/raw/main/bootstrap.sh | less
+curl -L https://github.com/ukazap/.dotfiles/raw/main/bootstrap.sh | less
 ```
 
 then, run it:
 
 ```shell
-sh <(curl -L https://github.com/ukazap/dotfiles/raw/main/bootstrap.sh)
+sh <(curl -L https://github.com/ukazap/.dotfiles/raw/main/bootstrap.sh)
 ```
