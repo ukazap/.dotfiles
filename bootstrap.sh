@@ -52,6 +52,7 @@ cd ~/.dotfiles
 
 rm -f ~/.zshrc
 stow zsh
-. ~/.zshrc
+stow tmux
 
 cd ~
+. ~/.zshrc
