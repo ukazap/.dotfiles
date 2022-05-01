@@ -11,8 +11,14 @@ there are two bootstrap scripts available:
 
 ## installation
 
-first, download and review the bootstrap script:
+first, review the bootstrap script (avoid running scripts from strangers you haven't read!):
 
 ```shell
+curl -L https://github.com/ukazap/dotfiles/raw/main/bootstrap.sh | less
+```
 
+then, run it:
+
+```shell
+sh <(curl -L https://github.com/ukazap/dotfiles/raw/main/bootstrap.sh)
 ```
