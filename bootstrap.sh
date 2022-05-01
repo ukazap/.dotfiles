@@ -7,6 +7,7 @@ sh <(curl -L https://nixos.org/nix/install) --no-daemon
 
 echo 🍜 installing nix packages
 
+# todo nixpkgs versions needs to be locked
 nix-env -iA \
   nixpkgs.bat \
   nixpkgs.curl \
@@ -28,6 +29,8 @@ echo 🍜 installing oh my zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 if [ "$SHELL" != "$(which zsh)" ]; then
+  echo 🍜 setting zsh as default shell
+
   if command -v lchsh; then
     echo "Please input this in the next prompt: $(which zsh)"
     sudo lchsh $(whoami)
@@ -36,13 +39,19 @@ if [ "$SHELL" != "$(which zsh)" ]; then
   fi
 fi
 
-echo 🍜 installing asdf version manager
-
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
+if ! command -v asdf; then
+  echo 🍜 installing asdf version manager
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
+fi
 
 echo 🍜 installing dotfiles
 
+rm -rf ~/.dotfiles
 git clone https://github.com/ukazap/.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
+
+rm -f ~/.zshrc
 stow zsh
+. ~/.zshrc
+
 cd ~
