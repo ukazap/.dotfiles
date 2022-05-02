@@ -68,4 +68,4 @@ esac
 cd ~
 echo "🍜 run 'exec zsh' to switch to zsh"
 echo "🍜 try rebooting the computer if zsh isn't yet the default shell"
-echo "🍜 and that's it! "
+echo "🍜 and that's it!"
