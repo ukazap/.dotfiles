@@ -29,12 +29,13 @@ echo 🍜 installing dotfiles
 stow zsh
 stow tmux
 
-if [[ "$SHELL" != "$(which zsh)" ]]; then
+if [[ "$SHELL" != "$(command -v zsh)" ]]; then
   echo 🍜 setting zsh as default shell
+  command -v zsh | sudo tee -a /etc/shells
   if command -v chsh; then
-    sudo chsh -s $(which zsh) $(whoami)
+    sudo chsh -s $(command -v zsh) $(whoami)
   elif command -v lchsh; then
-    echo "🍜 Ouch, there's no chsh. Please input this in the next prompt: $(which zsh)"
+    echo "🍜 Ouch, there's no chsh. Please input this in the next prompt: $(command -v zsh)"
     sudo lchsh $(whoami)
   fi
 fi
