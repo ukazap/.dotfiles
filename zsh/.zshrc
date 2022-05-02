@@ -1,9 +1,9 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 
-plugins=(git)
+# plugins=(git)
 
-. $ZSH/oh-my-zsh.sh
+# . $ZSH/oh-my-zsh.sh
 
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)

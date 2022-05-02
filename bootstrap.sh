@@ -1,4 +1,6 @@
-cd ~
+rm -rf ~/.dotfiles
+git clone https://github.com/ukazap/.dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 
 echo 🍜 installing nix package manager
 
@@ -7,7 +9,6 @@ sh <(curl -L https://nixos.org/nix/install) --no-daemon
 
 echo 🍜 installing nix packages
 
-# todo nixpkgs versions needs to be locked
 nix-env -iA \
   nixpkgs.bat \
   nixpkgs.curl \
@@ -24,14 +25,9 @@ nix-env -iA \
   nixpkgs.zsh \
   ;
 
-if [ ! -d ~/.oh-my-zsh ]; then
-  echo 🍜 installing oh my zsh
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
+echo 🍜 installing dotfiles
+stow zsh
+stow tmux
 
 if [[ "$SHELL" != "$(which zsh)" ]]; then
   echo 🍜 setting zsh as default shell
@@ -44,26 +40,19 @@ if [[ "$SHELL" != "$(which zsh)" ]]; then
   fi
 fi
 
-if ! command -v asdf; then
-  echo 🍜 installing asdf version manager
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
-fi
-
-echo 🍜 installing dotfiles
-
-rm -rf ~/.dotfiles
-git clone https://github.com/ukazap/.dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-
-rm -f ~/.zshrc
-stow zsh
-stow tmux
-
 echo 🍜 installing tmux plugins
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 tmux start-server
 tmux new-session -d
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 tmux kill-server
+
+if ! command -v asdf; then
+  echo 🍜 installing asdf version manager
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
+fi
 
 printf "Install desktop apps? (y/n): "; read choice
 case $choice in

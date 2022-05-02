@@ -6,10 +6,10 @@ to achieve portability across operating systems and linux distros, nix package m
 
 there are two bootstrap scripts available:
   
-  - `bootstrap.sh` common stuff which is useful everywhere including cloud environments such as [gitpod.io](gitpod.io) or [codespaces](https://github.com/features/codespaces),
-  - `bootstrap-desktop.sh` linux desktop-specific stuff.
+  - `bootstrap.sh`: common stuff which is useful everywhere including cloud environments such as [gitpod.io](gitpod.io) or [codespaces](https://github.com/features/codespaces),
+  - `bootstrap-desktop.sh`: linux desktop-specific stuff.
 
-## installation
+## installing
 
 first, review the bootstrap script (avoid running scripts from strangers you haven't read!):
 
@@ -22,3 +22,12 @@ then, run it:
 ```shell
 sh <(curl -L https://github.com/ukazap/.dotfiles/raw/main/bootstrap.sh)
 ```
+
+## todo
+
+* [ ] use [antidote](https://getantidote.github.io/) to manage zsh plugins
+* [ ] lock nixpkgs versions, use home.nix and home-manager
+* [ ] restore secrets (e.g. gpg keys, ssh keys) from remote backups
+* [ ] test on macos
+* [ ] test on ubuntu
+* [ ] add podman/docker in bootstrap.sh
