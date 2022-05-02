@@ -66,5 +66,6 @@ case $choice in
 esac
 
 cd ~
-echo "🍜 that's it, run 'exec zsh' to switch to zsh"
+echo "🍜 run 'exec zsh' to switch to zsh"
 echo "🍜 try rebooting the computer if zsh isn't yet the default shell"
+echo "🍜 and that's it! "
