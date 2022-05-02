@@ -31,12 +31,11 @@ stow tmux
 
 if [[ "$SHELL" != "$(which zsh)" ]]; then
   echo 🍜 setting zsh as default shell
-
-  if command -v lchsh; then
-    echo "Please input this in the next prompt: $(which zsh)"
-    sudo lchsh $(whoami)
-  elif command -v chsh; then
+  if command -v chsh; then
     sudo chsh -s $(which zsh) $(whoami)
+  elif command -v lchsh; then
+    echo "🍜 Ouch, there's no chsh. Please input this in the next prompt: $(which zsh)"
+    sudo lchsh $(whoami)
   fi
 fi
 
@@ -61,4 +60,5 @@ case $choice in
 esac
 
 cd ~
+env zsh
 . ~/.zshrc
