@@ -55,7 +55,7 @@ if ! command -v asdf; then
 fi
 
 if [[ ! -d ~/.antidote ]]; then
-  echo 🍜 installing antidote (zsh plugin management)
+  echo "🍜 installing antidote (zsh plugin management)"
   git clone https://github.com/mattmc3/antidote.git ~/.antidote
 fi
 
