@@ -11,13 +11,13 @@ there are two bootstrap scripts available:
 
 ## installing
 
-first, review the bootstrap script (avoid running scripts from strangers you haven't read!):
+first, review the bootstrap script (common sense says you should not execute scripts you haven't read):
 
 ```shell
 curl -L https://github.com/ukazap/.dotfiles/raw/main/bootstrap.sh | less
 ```
 
-then, run it:
+all good? then run it:
 
 ```shell
 sh <(curl -L https://github.com/ukazap/.dotfiles/raw/main/bootstrap.sh)
@@ -25,7 +25,7 @@ sh <(curl -L https://github.com/ukazap/.dotfiles/raw/main/bootstrap.sh)
 
 ## todo
 
-* [ ] use [antidote](https://getantidote.github.io/) to manage zsh plugins
+* [x] use [antidote](https://getantidote.github.io/) to manage zsh plugins
 * [ ] lock nixpkgs versions, use home.nix and home-manager
 * [ ] restore secrets (e.g. gpg keys, ssh keys) from remote backups
 * [ ] test on macos

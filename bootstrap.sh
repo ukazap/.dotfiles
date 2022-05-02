@@ -54,6 +54,11 @@ if ! command -v asdf; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
 fi
 
+if [[ ! -d ~/.antidote ]]; then
+  echo 🍜 installing antidote (zsh plugin management)
+  git clone https://github.com/mattmc3/antidote.git ~/.antidote
+fi
+
 printf "Install desktop apps? (y/n): "; read choice
 case $choice in
   y|Y ) ./bootstrap-desktop.sh;;
@@ -61,5 +66,5 @@ case $choice in
 esac
 
 cd ~
-env zsh
-. ~/.zshrc
+echo "🍜 that's it, run `exec zsh` to switch to zsh"
+echo "🍜 try rebooting the computer if zsh isn't yet the default shell"

@@ -1,20 +1,13 @@
-export ZSH="$HOME/.oh-my-zsh"
-# ZSH_THEME="agnoster"
+. $HOME/.nix-profile/etc/profile.d/nix.sh
 
-# plugins=(git)
-
-# . $ZSH/oh-my-zsh.sh
+. $HOME/.antidote/antidote.zsh
+antidote load
 
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-  . $HOME/.nix-profile/etc/profile.d/nix.sh;
-fi
-
-export EDITOR=$(which micro)
-export HOMEBREW_NO_ANALYTICS=1
+export EDITOR=$(command -v micro)
 export PATH="$HOME/.local/bin:$PATH"
 export RUST_WITHOUT=rust-docs
 if command -v podman; then
