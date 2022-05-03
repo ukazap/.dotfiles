@@ -4,24 +4,20 @@ this repo helps me set up a development environment quickly. some stuff may not 
 
 to achieve portability across operating systems and linux distros, nix package manager is used.
 
-there are two bootstrap scripts available:
-  
-  - `bootstrap.sh`: common stuff which is useful everywhere including cloud environments such as [gitpod.io](gitpod.io) or [codespaces](https://github.com/features/codespaces),
-  - `bootstrap-desktop.sh`: linux desktop-specific stuff.
-
 ## installing
 
-first, review the bootstrap script (common sense says you should not execute scripts you haven't read):
-
-```shell
-curl -L https://github.com/ukazap/.dotfiles/raw/main/bootstrap.sh | less
-```
+first, review the bootstrap script (common sense says you should not execute scripts you haven't read).
 
 all good? then run it:
 
 ```shell
 sh <(curl -L https://github.com/ukazap/.dotfiles/raw/main/bootstrap.sh)
 ```
+
+that will clone/pull this repository and then execute `bootstrap-common.sh` and optionally followed by `bootstrap-desktop`:
+  
+  - `bootstrap-common.sh`: common stuff which is useful everywhere including cloud environments such as [gitpod.io](gitpod.io) or [codespaces](https://github.com/features/codespaces),
+  - `bootstrap-desktop.sh`: linux desktop-specific stuff.
 
 ## todo
 

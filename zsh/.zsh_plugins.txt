@@ -1,0 +1,5 @@
+ohmyzsh/ohmyzsh
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/git-extras
+romkatv/powerlevel10k
+#marlonrichert/zsh-autocomplete
