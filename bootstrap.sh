@@ -1,5 +1,14 @@
 lastdir=$(pwd)
 
+if ! command -v nix-env; then
+  echo 🥢 installing nix package manager
+
+  sh <(curl -L https://nixos.org/nix/install) --no-daemon
+  . $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+
+(command -v git && command -v curl) || nix-env -iA nixpkgs.git nixpkgs.curl
+
 if cd ~/.dotfiles && git remote -v | grep ukazap/.dotfiles; then
   git pull
 else
@@ -17,6 +26,10 @@ case $choice in
 esac
 
 cd $lastdir
-echo "🍜 run 'exec zsh' to switch to zsh"
-echo "🍜 try rebooting the computer if zsh isn't yet the default shell"
+
+if [[ "$SHELL" != "$(command -v zsh)" ]]; then
+  echo "🥢 run 'exec zsh' to switch to zsh"
+  echo "🥢 try rebooting the computer if zsh isn't yet the default shell"
+fi
+
 echo "🍜 and that's it!"
