@@ -25,5 +25,5 @@ that will clone/pull this repository and then execute `bootstrap-common.sh` and 
 * [ ] lock nixpkgs versions, use home.nix and home-manager
 * [ ] restore secrets (e.g. gpg keys, ssh keys) from remote backups
 * [ ] test on macos
-* [ ] test on ubuntu
+* [x] test on ubuntu
 * [ ] add podman/docker in bootstrap.sh
