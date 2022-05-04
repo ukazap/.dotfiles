@@ -24,6 +24,7 @@ that will clone/pull this repository and then execute `bootstrap-common.sh` and 
 * [x] use [antidote](https://getantidote.github.io/) to manage zsh plugins
 * [ ] lock nixpkgs versions, use home.nix and home-manager
 * [ ] restore secrets (e.g. gpg keys, ssh keys) from remote backups
-* [ ] test on macos
+* [x] test on fedora
 * [x] test on ubuntu
+* [ ] test on macos
 * [ ] add podman/docker in bootstrap.sh
