@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo 🥢 installing nix packages
 
 nix-env -iA \
@@ -19,7 +19,7 @@ echo 🥢 installing dotfiles
 stow zsh
 stow tmux
 
-if [[ "$SHELL" != "$(command -v zsh)" ]]; then
+if [ "$SHELL" != "$(command -v zsh)" ]; then
   echo 🥢 setting zsh as default shell
   command -v zsh | sudo tee -a /etc/shells
   if command -v chsh; then
