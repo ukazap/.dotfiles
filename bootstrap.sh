@@ -1,3 +1,4 @@
+#!/bin/bash
 lastdir=$(pwd)
 
 if ! command -v nix-env; then
