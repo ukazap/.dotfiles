@@ -1,3 +1,4 @@
+#!/bin/bash
 echo 🥢 installing desktop apps and dotfiles
 
 nix-env -iA \
