@@ -8,7 +8,7 @@ if ! command -v nix-env; then
   . $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
 
-(command -v git && command -v curl) || nix-env -iA nixpkgs.git nixpkgs.curl
+nix-env -iA nixpkgs.git nixpkgs.curl
 
 if cd ~/.dotfiles && git remote -v | grep ukazap/.dotfiles; then
   git pull
