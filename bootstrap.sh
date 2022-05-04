@@ -1,10 +1,9 @@
-#!/bin/bash
 lastdir=$(pwd)
 
 if ! command -v nix-env; then
-  echo 🥢 installing nix package manager
+  echo "🥢 installing nix package manager"
 
-  sh <(curl -L https://nixos.org/nix/install) --no-daemon
+  curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
   . $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
 
@@ -23,7 +22,7 @@ sh ./bootstrap-common.sh
 printf "Install desktop apps? (y/n): "; read choice
 case $choice in
   y|Y ) sh ./bootstrap-desktop.sh;;
-  * ) echo "bootstrap-desktop.sh skipped";;
+  * ) echo "🥢 bootstrap-desktop.sh skipped";;
 esac
 
 cd $lastdir

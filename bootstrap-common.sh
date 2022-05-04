@@ -1,4 +1,3 @@
-#!/bin/bash
 echo 🥢 installing nix packages
 
 nix-env -iA \
