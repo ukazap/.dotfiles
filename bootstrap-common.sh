@@ -44,7 +44,7 @@ if ! command -v asdf; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
 fi
 
-if [[ ! -d ~/.antidote ]]; then
+if [ ! -d ~/.antidote ]; then
   echo "🥢 installing antidote (zsh plugin management)"
   git clone https://github.com/mattmc3/antidote.git ~/.antidote
 fi
