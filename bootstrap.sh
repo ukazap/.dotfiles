@@ -28,9 +28,5 @@ esac
 
 cd $lastdir
 
-if [ "$SHELL" != "$(command -v zsh)" ]; then
-  echo "🥢 run 'exec zsh' to switch to zsh"
-  echo "🥢 try rebooting the computer if zsh isn't yet the default shell"
-fi
-
-echo "🍜 and that's it!"
+touch ~/done-bootstrapping
+exec zsh

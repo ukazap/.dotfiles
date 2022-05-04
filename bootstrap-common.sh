@@ -3,7 +3,9 @@ echo 🥢 installing nix packages
 
 nix-env -iA \
   nixpkgs.bat \
+  nixpkgs.cowsay \
   nixpkgs.fzf \
+  nixpkgs.glibcLocales \
   nixpkgs.jc \
   nixpkgs.jq \
   nixpkgs.magic-wormhole \

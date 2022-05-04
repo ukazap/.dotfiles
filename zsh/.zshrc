@@ -18,11 +18,18 @@ antidote load
 . ~/.p10k.zsh
 
 export BAT_THEME="Solarized (dark)"
+export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
 export EDITOR=$(command -v micro)
+export LOCALE_ARCHIVE="$(nix-env --installed --no-name --out-path --query glibc-locales)/lib/locale/locale-archive"
 export PATH="~/.local/bin:$PATH"
-command -v podman && export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
 
 alias edit=$EDITOR
 alias open=xdg-open
 alias emix=". .env && mix "
 alias eiex=". .env && iex "
+
+if [ -f ~/done-bootstrapping ]; then
+  rm ~/done-bootstrapping
+  cowsay -f dragon "dev environment setup done 🍜"
+  neofetch
+fi
