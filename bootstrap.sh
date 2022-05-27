@@ -18,14 +18,18 @@ else
   cd ~/.dotfiles
 fi
 
+confirm() {
+  printf "$1 (y/n): "; read choice
+  case $choice in
+    y|Y ) true;;
+    n|N ) false;;
+    * ) echo "Wrong answer, please enter y/n"; confirm "$1" ;;
+  esac
+}
+
 sh ./bootstrap-common.sh
 
-printf "Install desktop apps? (y/n): "; read choice
-case $choice in
-  y|Y ) sh ./bootstrap-desktop.sh;;
-  * ) echo "🥢 bootstrap-desktop.sh skipped";;
-esac
-
+confirm "Install desktop apps?" && sh ./bootstrap-desktop.sh
 cd $lastdir
 
 touch ~/done-bootstrapping

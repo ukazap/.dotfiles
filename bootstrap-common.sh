@@ -18,8 +18,15 @@ nix-env -iA \
   ;
 
 echo 🥢 installing dotfiles
-stow zsh
 stow tmux
+
+if [ -f ~/.zshrc ] && confirm "Replace existing zsh dotfiles?"; then
+  stow zsh --adopt
+  git reset --hard
+else
+  stow zsh
+fi
+
 
 if [ "$SHELL" != "$(command -v zsh)" ]; then
   echo 🥢 setting zsh as default shell
