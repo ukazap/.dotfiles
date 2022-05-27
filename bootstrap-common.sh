@@ -1,4 +1,6 @@
 #!/bin/sh
+. ./helpers.sh
+
 echo 🥢 installing nix packages
 
 nix-env -iA \
